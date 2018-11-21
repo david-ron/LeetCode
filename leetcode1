@@ -1,0 +1,15 @@
+vector<int> twoSum(vector<int>& nums, int target) {
+    unordered_map<int, int> map =  unordered_map<int,int>();
+    vector<int> num;
+    for(unsigned int i = 0 ; i<nums.size() ; ++i){
+        if(map[nums[i]]){
+            num.push_back(--map[nums[i]]);
+            num.push_back(i);
+            return num;
+        }
+        else
+            map[target-nums[i]] = 1+i;
+        
+    }
+    return num;
+}

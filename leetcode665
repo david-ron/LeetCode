@@ -1,0 +1,18 @@
+    public boolean checkPossibility(int[] nums) {
+      		boolean check = false;
+		for (int i = 0; i < nums.length - 1; ++i) {
+			if (nums[i] > nums[i + 1]) {
+				if (check == true) {
+					return false;
+				}
+				check = true;
+					if(i-1>=0 && nums[i-1] > nums[i+1]) nums[i+1] = nums[i];
+                else{
+                    nums[i] = nums[i+1];
+                }
+
+			}
+
+		}
+		return true;
+}

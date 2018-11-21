@@ -1,0 +1,15 @@
+ bool hasCycle(ListNode *head) {
+        if(!head||!head->next){
+            return false;
+        }
+        ListNode *curr = head;
+        ListNode *future = head;
+        while(future->next&&future->next->next){
+            curr = curr -> next;
+            future = future->next->next;
+            if(curr == future){
+                return true;
+            }
+        }
+        return false;
+    }
