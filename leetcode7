@@ -1,0 +1,11 @@
+int reverse(int x) {
+    long reversedNumber=0;
+    while(x!=0){    
+        reversedNumber += x%10;
+        x/=10;
+        reversedNumber*=10;
+        if(INT32_MIN>reversedNumber/10||INT32_MAX<reversedNumber/10)
+            return 0;
+    }
+    return reversedNumber /= 10;;
+}
