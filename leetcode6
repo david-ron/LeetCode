@@ -1,0 +1,14 @@
+    string convert(string s, int numRows) {
+        if (numRows == 1) return s;
+        vector<string> rows(std::min<long>(numRows,s.length()));
+        int rowLevel = 0;
+        bool directionDown = true;
+        for (char c: s){
+            if(rowLevel == 0 || rowLevel == numRows-1 ) directionDown = !directionDown;
+            rows[rowLevel] += c;
+            rowLevel = directionDown ? --rowLevel : ++rowLevel;
+        }
+        s.clear();
+        for(string row : rows) s+=row;
+        return s;
+    }
