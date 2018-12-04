@@ -1,0 +1,23 @@
+string longestPalindrome(string s)
+{
+    if(s.empty()||s.length() == 0){
+        return "";
+    }
+    int row, col;
+    col = s.length();
+    row = s.length();
+    bool arr[s.length()][s.length()];
+    memset(arr, 0, sizeof(arr[0][0]) * row * col);
+    string str = "";
+    for(int i=0;i<s.length();i++){
+        for(int j=i;j>=0;j--){
+            if( s[i] == s[j] && (i-j<2 ||arr[i-1][j+1])){
+                arr[i][j] = true;
+                if(str==""||str.length()<i-j+1)
+                    str = s.substr(j,i-j+1);
+            }
+            
+        }
+    }
+    return str;
+}
